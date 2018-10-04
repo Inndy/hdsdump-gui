@@ -6,6 +6,12 @@ HDSDump 2.0
 ===========
 Completely rewritten. Used .NET 4.0 platform.
 
+HDSDump-GUI
+===========
+Add a simple GUI form to HDSDump 2.0
+
+![HDSDump-GUI](gui-preview.png)
+
 Overview
 --------
 HDSDump is command-line utility for dumping [HDS stream](http://www.adobe.com/ru/products/hds-dynamic-streaming.html) to the FLV file or pipe to other media player (such as VLC).

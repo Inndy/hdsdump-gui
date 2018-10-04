@@ -6,6 +6,7 @@ using System.Globalization;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace hdsdump {
     class Program {
@@ -95,6 +96,18 @@ namespace hdsdump {
             System.Net.ServicePointManager.CheckCertificateRevocationList = false;
             System.Net.ServicePointManager.DefaultConnectionLimit         = 20;
             System.Net.ServicePointManager.Expect100Continue              = false;
+
+            if (args.Length == 0)
+            {
+                // GUI mode
+                MainForm form = new MainForm();
+                form.OnConfirm += delegate (string url, string outfile) {
+                    args = new string[] { "-m", url, "-o", outfile };
+                };
+                Application.EnableVisualStyles();
+                Application.Run(form);
+            }
+
             try {
                 AppDomain.CurrentDomain.UnhandledException += (sender, e) => FatalExceptionObject(e.ExceptionObject);
 
